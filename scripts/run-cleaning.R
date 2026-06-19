@@ -3,7 +3,8 @@ if (file.exists("renv/activate.R")) {
 }
 
 cleaning_scripts <- c(
-  "ebmud/2026-05-22-v01" = "scripts/clean-ebmud-2026-05-22-v01.R"
+  "ebmud/2026-05-22-v01" = "scripts/clean-ebmud-2026-05-22-v01.R",
+  "sbfca/2026-05-22-v01" = "scripts/clean-sbfca-2026-05-22-v01.R"
 )
 
 for (submission in names(cleaning_scripts)) {

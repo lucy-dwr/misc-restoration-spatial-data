@@ -1,6 +1,6 @@
 source("R/cleaning-utils.R")
 
-source_gpkg <- "data-raw/ebmud/2026-05-22_v01-2/2026-05-22_v01-2.gpkg"
+source_gpkg <- "data-raw/ebmud/2026-05-22_v01/2026-05-22_v01.gpkg"
 source_layer <- "LMR_HRL_Projects_Act_FINAL_1"
 schema_file <- "schemas/hrl_restoration_project.yaml"
 
