@@ -1,0 +1,3 @@
+source_file,layer_name,geometry_type,features,fields,crs_name
+data-raw/sfpuc/2026-05-22_v01/2026-05-22_v01.gpkg,merged,Multi Polygon,2,29,NAD83(2011) / California zone 3 (ftUS)
+data-raw/sfpuc/2026-05-22_v01/2026-05-22_v01.gpkg,tuolumne_hrl_restoration_spatial_data__merged,Multi Polygon,2,29,NAD83(2011) / California zone 3 (ftUS)

@@ -1,0 +1,12 @@
+severity,check,feature_id,field,submitted_value,standardized_value,message
+info,source_inventory,NA,NA,NA,NA,Read 2 features from merged; source CRS: NAD83(2011) / California zone 3 (ftUS).
+info,source_inventory,NA,NA,NA,NA,Submitted GeoPackage contains a second layer with matching feature count and fields; `merged` was used as the source layer.
+info,profile,NA,NA,NA,NA,Output targets RestorationProjectSubmission; project_id and update_date were omitted.
+info,geometry_standardization,NA,NA,NA,NA,"Dropped Z/M ordinates, repaired geometries with sf::st_make_valid(), and transformed to EPSG:3310."
+warning,value_repair,Upstream of Old LaGrange Bridge Restoration Projec,project_name,Upstream of Old LaGrange Bridge Restoration Projec,Upstream of Old LaGrange Bridge Restoration Project,Repaired apparent field-width truncation in submitted project name.
+warning,value_repair,Upstream of Old LaGrange Bridge Restoration Project,lead_entity,San Francisco Public Utilites Commission; Modesto Irrigation District; Turlock Irrigation District,San Francisco Public Utilities Commission; Modesto Irrigation District; Turlock Irrigation District,Corrected apparent spelling error in lead-entity organization name and normalized semicolon serialization.
+warning,value_repair,Powerhouse Riffles Restoration Project,lead_entity,San Francisco Public Utilites Commission; Modesto Irrigation District; Turlock Irrigation District,San Francisco Public Utilities Commission; Modesto Irrigation District; Turlock Irrigation District,Corrected apparent spelling error in lead-entity organization name and normalized semicolon serialization.
+warning,value_repair,Upstream of Old LaGrange Bridge Restoration Project,funding_sources,"SFPUC, MID, TID, CDFW",SFPUC; MID; TID; CDFW,Converted comma-delimited funder acronyms to semicolon-delimited values and corrected apparent SFPUC typo.
+warning,value_repair,Powerhouse Riffles Restoration Project,funding_sources,"SPFUC, MID, TID",SFPUC; MID; TID,Converted comma-delimited funder acronyms to semicolon-delimited values and corrected apparent SFPUC typo.
+info,acreage_consistency,Upstream of Old LaGrange Bridge Restoration Project,acreage_fish_food,NA,NA,"Project type includes fish food production, but submitted acreage_fish_food is missing; retained as missing by local review decision."
+info,acreage_consistency,Powerhouse Riffles Restoration Project,acreage_fish_food,NA,NA,"Project type includes fish food production, but submitted acreage_fish_food is missing; retained as missing by local review decision."
