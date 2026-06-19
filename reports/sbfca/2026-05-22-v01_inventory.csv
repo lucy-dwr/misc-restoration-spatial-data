@@ -1,0 +1,2 @@
+source_file,layer_name,geometry_type,features,fields,crs_name
+data-raw/sbfca/2026-05-22_v01/2026-05-22_v01.gpkg,SBFCA_OWA_Robinsons_Riffle,3D Measured Multi Polygon,1,27,NAD83 / California zone 2 (ftUS)

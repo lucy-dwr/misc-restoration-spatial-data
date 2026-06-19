@@ -34,6 +34,7 @@ index stays readable.
 ## Submission-Specific Logs
 
 - [EBMUD 2026-05-22-v01](decisions/ebmud-2026-05-22-v01.md)
+- [SBFCA 2026-05-22-v01](decisions/sbfca-2026-05-22-v01.md)
 
 ## Open Questions
 

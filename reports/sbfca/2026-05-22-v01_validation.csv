@@ -1,0 +1,10 @@
+severity,check,feature_id,field,submitted_value,standardized_value,message
+info,source_inventory,NA,NA,NA,NA,Read 1 features from SBFCA_OWA_Robinsons_Riffle; source CRS: NAD83 / California zone 2 (ftUS).
+info,profile,NA,NA,NA,NA,Output targets RestorationProjectSubmission; canonical-only update_date was omitted.
+info,geometry_standardization,NA,NA,NA,NA,"Dropped Z/M ordinates, repaired geometries with sf::st_make_valid(), and transformed to EPSG:3310."
+warning,value_repair,Oroville Wildlife Area River Restoration Project at Robinson's Riffle,project_stage,permitting;design,permitting; design,Normalized semicolon-delimited serialization while preserving submitted values.
+warning,value_repair,Oroville Wildlife Area River Restoration Project at Robinson's Riffle,project_type,rearing habitat;spawning habitat,rearing habitat; spawning habitat,Normalized semicolon-delimited serialization while preserving submitted values.
+warning,value_repair,Oroville Wildlife Area River Restoration Project at Robinson's Riffle,contractors,R&F;Cramer,R&F Engineering; Cramer Fish Sciences,Standardized confirmed contractor organization names.
+warning,value_repair,Oroville Wildlife Area River Restoration Project at Robinson's Riffle,target_species,Chinook salmon;Pacific lamprey;White sturgeon;Green sturgeon;Steelhead trout,Chinook salmon; Pacific lamprey; White sturgeon; Green sturgeon; Steelhead trout,Normalized semicolon-delimited serialization while preserving submitted values.
+warning,value_repair,Oroville Wildlife Area River Restoration Project at Robinson's Riffle,funding_sources,"Wildlife Conservation Board Greenhouse Gas Reduction Fund, Budget Act of 2024, Streamflow Programs",Wildlife Conservation Board Greenhouse Gas Reduction Fund,Standardized to confirmed funding source name.
+warning,value_repair,Oroville Wildlife Area River Restoration Project at Robinson's Riffle,early_implementation,0,FALSE,Converted submitted integer flag to schema boolean value.
