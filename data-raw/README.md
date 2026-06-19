@@ -25,6 +25,7 @@ Current submitter folders:
 
 | Folder | Submitter |
 | --- | --- |
+| `dwr/` | California Department of Water Resources |
 | `ebmud/` | East Bay Municipal Utilities District |
 | `sbfca/` | Sutter Buttes Flood Control Agency |
 | `scwa/` | Solano County Water Agency |

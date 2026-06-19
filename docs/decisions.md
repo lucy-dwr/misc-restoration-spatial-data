@@ -33,8 +33,12 @@ index stays readable.
 
 ## Submission-Specific Logs
 
+- [DWR 2026-06-19-v01](decisions/dwr-2026-06-19-v01.md)
 - [EBMUD 2026-05-22-v01](decisions/ebmud-2026-05-22-v01.md)
 - [SBFCA 2026-05-22-v01](decisions/sbfca-2026-05-22-v01.md)
+- [SFPUC 2026-05-22-v01](decisions/sfpuc-2026-05-22-v01.md)
+- [Water Forum 2026-05-27-v01](decisions/water-forum-2026-05-27-v01.md)
+- [YWA 2026-05-23-v01](decisions/ywa-2026-05-23-v01.md)
 
 ## Open Questions
 
