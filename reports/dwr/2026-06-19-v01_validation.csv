@@ -1,0 +1,20 @@
+severity,check,feature_id,field,submitted_value,standardized_value,message
+info,source_inventory,NA,NA,NA,NA,Read 13 features from restoration_projects; source CRS: NAD83 / California Albers.
+info,profile,NA,NA,NA,NA,Output targets RestorationProjectSubmission; project_id and update_date were omitted.
+info,geometry_standardization,NA,NA,NA,NA,"Dropped Z/M ordinates, repaired geometries with sf::st_make_valid(), and transformed to EPSG:3310."
+warning,value_repair,P68 Feather River Salmon Habitat Improvement Project,funding_sources,Prop 68; CVPIA; ; DWR,Prop 68; CVPIA; DWR,Normalized semicolon-delimited serialization and dropped empty submitted list elements.
+info,derived_value,Feather River Salmonid Spawning Habitat Improvement - 2024,funding_gap,NA,0,Source did not include funding_gap; derived as estimated_budget - funding_secured.
+info,derived_value,P68 Feather River Salmon Habitat Improvement Project,funding_gap,NA,0,Source did not include funding_gap; derived as estimated_budget - funding_secured.
+error,required_field,McCormick-Williamson Tract (MWT) Monitoring Project (Phase B),funding_secured,NA,NA,Required field is missing after standardization.
+error,required_field,Grizzly Slough Floodplain Restoration,funding_secured,NA,NA,Required field is missing after standardization.
+error,required_field,Lower Elkhorn Basin Levee Setback,funding_secured,NA,NA,Required field is missing after standardization.
+error,required_field,Kopta Slough Multi-Benefit Project,funding_secured,NA,NA,Required field is missing after standardization.
+error,required_field,Dos Rios Norte,construction_start_year,NA,NA,Required field is missing after standardization.
+error,required_field,Dos Rios Norte,construction_completion_year,NA,NA,Required field is missing after standardization.
+error,required_field,Dos Rios Norte,funding_secured,NA,NA,Required field is missing after standardization.
+error,required_field,Tisdale Weir Reoperation,funding_secured,NA,NA,Required field is missing after standardization.
+error,required_field,Agricultural Road Crossing #4 Improvements,funding_secured,NA,NA,Required field is missing after standardization.
+error,required_field,Prospect Island Tidal Habitat Restoration Project,funding_secured,NA,NA,Required field is missing after standardization.
+error,required_field,Little Egbert Multi-Benefit Project,funding_secured,NA,NA,Required field is missing after standardization.
+error,required_field,Tide's End Multibenefit Restoration Project,funding_secured,NA,NA,Required field is missing after standardization.
+error,required_field,Dutch Slough Tidal Restoration Project (Phase 2),funding_secured,NA,NA,Required field is missing after standardization.

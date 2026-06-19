@@ -1,0 +1,2 @@
+source_file,layer_name,geometry_type,features,fields,crs_name
+data-raw/dwr/2026-06-19_v01/2026-06-19_v01.gpkg,restoration_projects,Multi Polygon,13,25,NAD83 / California Albers
