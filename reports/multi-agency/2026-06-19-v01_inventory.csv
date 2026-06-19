@@ -1,0 +1,9 @@
+source_slug,source_agency,submission_version,source_file,source_layer,features,geometry_type,crs_epsg
+dwr,California Department of Water Resources,2026-06-19-v01,data-standardized/dwr/2026-06-19-v01.gpkg,restoration_projects,13,MULTIPOLYGON,3310
+ebmud,East Bay Municipal Utility District,2026-05-22-v01,data-standardized/ebmud/2026-05-22-v01.gpkg,restoration_projects,6,MULTIPOLYGON,3310
+sbfca,Sutter Butte Flood Control Agency,2026-05-22-v01,data-standardized/sbfca/2026-05-22-v01.gpkg,restoration_projects,1,MULTIPOLYGON,3310
+scwa,Solano County Water Agency,2026-05-22-v01,data-standardized/scwa/2026-05-22-v01.gpkg,restoration_projects,4,POLYGON,3310
+sfpuc,San Francisco Public Utilities Commission,2026-05-22-v01,data-standardized/sfpuc/2026-05-22-v01.gpkg,restoration_projects,2,POLYGON,3310
+water-forum,Water Forum,2026-05-27-v01,data-standardized/water-forum/2026-05-27-v01.gpkg,restoration_projects,6,MULTIPOLYGON,3310
+ywa,Yuba Water Agency,2026-05-23-v01,data-standardized/ywa/2026-05-23-v01.gpkg,restoration_projects,4,MULTIPOLYGON,3310
+multi-agency,All standardized submissions,2026-06-19-v01,data-standardized/multi-agency/2026-06-19-v01.gpkg,restoration_projects,36,MULTIPOLYGON,3310
