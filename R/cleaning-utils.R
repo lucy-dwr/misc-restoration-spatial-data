@@ -472,6 +472,11 @@ render_qc_report_pdf <- function(md_path, pdf_path) {
     paste0(".", tools::file_path_sans_ext(basename(pdf_path)), ".qmd")
   )
   typ_path <- sub("\\.qmd$", ".typ", qmd_path)
+  support_dir <- file.path(
+    report_dir,
+    paste0(tools::file_path_sans_ext(basename(qmd_path)), "_files")
+  )
+  quarto_dir <- file.path(report_dir, ".quarto")
 
   readr::write_lines(
     c("---", "format: typst", "---", "", readr::read_lines(md_path)),
@@ -480,7 +485,7 @@ render_qc_report_pdf <- function(md_path, pdf_path) {
 
   old_wd <- getwd()
   on.exit(setwd(old_wd), add = TRUE)
-  on.exit(unlink(c(qmd_path, typ_path)), add = TRUE)
+  on.exit(unlink(c(qmd_path, typ_path, support_dir, quarto_dir), recursive = TRUE), add = TRUE)
   setwd(report_dir)
 
   result <- system2(
