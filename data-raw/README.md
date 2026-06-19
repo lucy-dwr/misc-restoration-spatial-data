@@ -11,11 +11,15 @@ notes. This directory is a local working copy for processing.
 
 ## Current Organization
 
-Files are grouped by submitting entity:
+Files are grouped by submitting entity and submission batch:
 
 ```text
-data-raw/<submitting-entity>/<received-date>_<version>.<extension>
+data-raw/<submitting-entity>/<received-date>_<version>/<original-submission-files>
 ```
+
+The submission folder name should match the received date and submission
+version used in the Azure Data Lake manifest. Keep all files from the same
+submission together, including separate attribute workbooks such as XLSX files.
 
 Current submitter folders:
 

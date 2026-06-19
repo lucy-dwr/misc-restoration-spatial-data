@@ -34,7 +34,8 @@ For each submission:
 3. Map source fields to schema fields with explicit transformations.
 4. Preserve raw values when possible, but normalize controlled vocabularies,
    multivalue fields, numeric types, dates, CRS, and geometry types as required.
-5. Document destructive or interpretive changes before applying them.
+5. Document destructive, idiosyncratic, or interpretive changes before applying
+   them.
 6. Generate a validation or QA report with enough detail to reproduce the
    result.
 
@@ -53,6 +54,9 @@ For each submission:
   with ad hoc string operations.
 - Keep scripts scoped to one clear operation or submission until a reusable
   pattern emerges.
+- Submission-specific cleaning scripts are acceptable when a contributor's data
+  has idiosyncratic formats, missing values, or unusual encodings. Keep that
+  logic explicit and documented rather than hiding it in broad helper code.
 - Avoid hard-coding schema values in multiple places. Pull from pinned schema
   artifacts when possible.
 - If Python or command-line GDAL tools are useful for a specific task, document
@@ -94,6 +98,11 @@ Validation and QA should check at minimum:
 
 - Ask before making irreversible changes to submitted content or inventing
   values that are not present in the source material.
+- Work with the user to confirm assumptions when a repair is interpretive,
+  uncertain, or based on context outside the raw file and Azure manifest.
+- If a value cannot be repaired confidently, leave it missing in the standardized
+  output when the schema allows, flag it clearly in the QC report, and suggest a
+  remedy.
 - If a submitted value is ambiguous, prefer a documented warning and a review
   queue over silent coercion.
 - If schema rules need to change, notify the user and propose an issue that can

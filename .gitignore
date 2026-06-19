@@ -39,11 +39,34 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 
-# pkgdown site
-docs/
-
 # translation temp files
 po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# OS/editor files
+.DS_Store
+.idea/
+.vscode/
+
+# Python cache, if auxiliary Python tooling is ever used
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Large or raw submitted data
+*.gpkg
+*.shp
+*.shx
+*.dbf
+*.prj
+*.cpg
+*.qix
+*.sbn
+*.sbx
+*.tif
+*.tiff
+*.zip
+*.xlsx
