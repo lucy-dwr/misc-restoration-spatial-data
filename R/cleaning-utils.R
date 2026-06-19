@@ -12,6 +12,55 @@ dir_create <- function(path) {
   invisible(path)
 }
 
+#' Build Standard Submission Paths
+#'
+#' Creates the standard raw, standardized output, and report paths for a
+#' submission that follows the repository naming conventions.
+#'
+#' @param slug Submitter slug used under `data-raw/`, `data-standardized/`, and
+#'   `reports/`.
+#' @param version Submission version in output naming format, such as
+#'   `2026-05-22-v01`.
+#' @param source_ext Source file extension without a leading dot.
+#' @param schema_file Path to the schema YAML file.
+#' @param out_layer Standardized output layer name.
+#'
+#' @return A named list of paths and standard output metadata.
+submission_paths <- function(slug, version, source_ext = "gpkg",
+                             schema_file = "schemas/hrl_restoration_project.yaml",
+                             out_layer = "restoration_projects") {
+  raw_version <- stringr::str_replace(version, "-v([0-9]+)$", "_v\\1")
+  out_dir <- file.path("data-standardized", slug)
+  report_dir <- file.path("reports", slug)
+
+  list(
+    schema_file = schema_file,
+    source_gpkg = file.path("data-raw", slug, raw_version, paste0(raw_version, ".", source_ext)),
+    out_dir = out_dir,
+    report_dir = report_dir,
+    out_gpkg = file.path(out_dir, paste0(version, ".gpkg")),
+    out_layer = out_layer,
+    inventory_csv = file.path(report_dir, paste0(version, "_inventory.csv")),
+    validation_csv = file.path(report_dir, paste0(version, "_validation.csv")),
+    qc_md = file.path(report_dir, paste0(version, "_qc.md")),
+    qc_pdf = file.path(report_dir, paste0(version, "_qc.pdf"))
+  )
+}
+
+#' Create Standard Submission Output Directories
+#'
+#' Creates the standardized data and report directories from a path list
+#' returned by [submission_paths()].
+#'
+#' @param paths A submission path list.
+#'
+#' @return The input path list, invisibly.
+dir_create_submission <- function(paths) {
+  dir_create(paths$out_dir)
+  dir_create(paths$report_dir)
+  invisible(paths)
+}
+
 #' Normalize Blank Character Values to Missing
 #'
 #' Converts values to character, trims repeated whitespace, and converts empty
@@ -55,6 +104,75 @@ split_semicolon_values <- function(x) {
   stringr::str_split(x, "\\s*;\\s*", simplify = FALSE)[[1]] |>
     stringr::str_squish() |>
     purrr::discard(~ .x == "")
+}
+
+#' Normalize Semicolon-delimited Values
+#'
+#' Formats semicolon-delimited values with trimmed entries and a single space
+#' after each delimiter. Blank values are returned as missing.
+#'
+#' @param x A vector containing semicolon-delimited values.
+#'
+#' @return A character vector.
+normalize_semicolon_values <- function(x) {
+  x <- null_to_na_chr(x)
+  purrr::map_chr(x, function(value) {
+    if (is.na(value)) {
+      return(NA_character_)
+    }
+    paste(split_semicolon_values(value), collapse = "; ")
+  })
+}
+
+#' Load a Restoration Schema Profile
+#'
+#' Loads the pinned HRL restoration schema and extracts field lists used by
+#' cleaning scripts for a target schema class.
+#'
+#' @param schema_file Path to the schema YAML file.
+#' @param class_name Schema class name to extract.
+#'
+#' @return A list containing the parsed schema, all fields, attribute fields,
+#'   required fields, and required attribute fields.
+load_schema_profile <- function(schema_file,
+                                class_name = "RestorationProjectRecord") {
+  schema <- yaml::yaml.load_file(schema_file)
+  fields <- schema$classes[[class_name]]$slots
+  required_fields <- names(purrr::keep(
+    schema$classes[[class_name]]$slot_usage,
+    ~ identical(.x$required, TRUE)
+  ))
+
+  list(
+    schema = schema,
+    fields = fields,
+    attribute_fields = setdiff(fields, "geometry"),
+    required_fields = required_fields,
+    required_attribute_fields = setdiff(required_fields, "geometry")
+  )
+}
+
+#' Read a Submission GeoPackage Layer
+#'
+#' Inventories a GeoPackage, optionally writes that inventory to CSV, and reads
+#' the requested source layer.
+#'
+#' @param source_gpkg Path to the source GeoPackage.
+#' @param source_layer Layer name to read.
+#' @param inventory_csv Optional path to write inventory CSV.
+#'
+#' @return A list with `inventory` and `raw` elements.
+read_submission_layer <- function(source_gpkg, source_layer,
+                                  inventory_csv = NULL) {
+  inventory <- inventory_gpkg(source_gpkg)
+  if (!is.null(inventory_csv)) {
+    readr::write_csv(inventory, inventory_csv)
+  }
+
+  list(
+    inventory = inventory,
+    raw = sf::st_read(source_gpkg, layer = source_layer, quiet = TRUE)
+  )
 }
 
 #' Get Permissible Values from a Schema Enum

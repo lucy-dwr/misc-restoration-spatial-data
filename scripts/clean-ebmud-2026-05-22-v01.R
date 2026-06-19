@@ -1,34 +1,18 @@
 source("R/cleaning-utils.R")
 
-source_gpkg <- "data-raw/ebmud/2026-05-22_v01/2026-05-22_v01.gpkg"
+paths <- submission_paths("ebmud", "2026-05-22-v01")
 source_layer <- "LMR_HRL_Projects_Act_FINAL_1"
-schema_file <- "schemas/hrl_restoration_project.yaml"
 
-out_dir <- "data-standardized/ebmud"
-report_dir <- "reports/ebmud"
-out_gpkg <- file.path(out_dir, "2026-05-22-v01.gpkg")
-out_layer <- "restoration_projects"
-inventory_csv <- file.path(report_dir, "2026-05-22-v01_inventory.csv")
-validation_csv <- file.path(report_dir, "2026-05-22-v01_validation.csv")
-qc_md <- file.path(report_dir, "2026-05-22-v01_qc.md")
-qc_pdf <- file.path(report_dir, "2026-05-22-v01_qc.pdf")
+dir_create_submission(paths)
 
-dir_create(out_dir)
-dir_create(report_dir)
+schema_profile <- load_schema_profile(paths$schema_file)
+schema <- schema_profile$schema
+attribute_fields <- schema_profile$attribute_fields
+required_attribute_fields <- schema_profile$required_attribute_fields
 
-schema <- yaml::yaml.load_file(schema_file)
-submission_fields <- schema$classes$RestorationProjectRecord$slots
-attribute_fields <- setdiff(submission_fields, "geometry")
-required_fields <- names(purrr::keep(
-  schema$classes$RestorationProjectRecord$slot_usage,
-  ~ identical(.x$required, TRUE)
-))
-required_attribute_fields <- setdiff(required_fields, "geometry")
-
-inventory <- inventory_gpkg(source_gpkg)
-readr::write_csv(inventory, inventory_csv)
-
-raw <- sf::st_read(source_gpkg, layer = source_layer, quiet = TRUE)
+submission <- read_submission_layer(paths$source_gpkg, source_layer, paths$inventory_csv)
+inventory <- submission$inventory
+raw <- submission$raw
 
 stage_map <- c(
   "Design & Permitting" = "design; permitting",
@@ -325,7 +309,7 @@ for (i in seq_len(nrow(cleaned) - 1)) {
   }
 }
 
-readr::write_csv(validation, validation_csv)
+readr::write_csv(validation, paths$validation_csv)
 
 transformations <- c(
   "- `project_stage`: mapped submitted labels to schema enum values.",
@@ -359,32 +343,32 @@ review_items <- c(
 )
 
 write_qc_report(
-  path = qc_md,
+  path = paths$qc_md,
   title = "EBMUD 2026-05-22-v01 QC Report",
-  source_file = source_gpkg,
+  source_file = paths$source_gpkg,
   source_layer = source_layer,
   inventory = inventory,
   validation = validation,
-  output_file = out_gpkg,
-  output_layer = out_layer,
+  output_file = paths$out_gpkg,
+  output_layer = paths$out_layer,
   output_rows = nrow(cleaned),
   output_crs = "EPSG:3310",
   target_profile = "RestorationProjectSubmission",
   transformations = transformations,
   review_items = review_items,
-  validation_file = validation_csv,
-  pdf_path = qc_pdf,
+  validation_file = paths$validation_csv,
+  pdf_path = paths$qc_pdf,
   omitted_program_fields = "update_date",
   omitted_source_fields = c("Name", "Site_Name", "geometry", "Shape")
 )
 
-if (file.exists(out_gpkg)) {
-  unlink(out_gpkg)
+if (file.exists(paths$out_gpkg)) {
+  unlink(paths$out_gpkg)
 }
-sf::st_write(cleaned, out_gpkg, layer = out_layer, quiet = TRUE)
+sf::st_write(cleaned, paths$out_gpkg, layer = paths$out_layer, quiet = TRUE)
 
-message("Wrote ", out_gpkg)
-message("Wrote ", inventory_csv)
-message("Wrote ", validation_csv)
-message("Wrote ", qc_md)
-message("Wrote ", qc_pdf)
+message("Wrote ", paths$out_gpkg)
+message("Wrote ", paths$inventory_csv)
+message("Wrote ", paths$validation_csv)
+message("Wrote ", paths$qc_md)
+message("Wrote ", paths$qc_pdf)
