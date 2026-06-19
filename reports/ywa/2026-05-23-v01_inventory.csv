@@ -1,0 +1,3 @@
+source_file,layer_name,geometry_type,features,fields,crs_name
+data-raw/ywa/2026-05-23_v01/2026-05-23_v01.gpkg,Yuba_HRL_Projects,3D Measured Multi Polygon,4,28,NAD83 / California zone 2 (ftUS)
+data-raw/ywa/2026-05-23_v01/2026-05-23_v01.xlsx,project attribute tabs: HW; LLB; ULB; URB,NA,4,26,NA

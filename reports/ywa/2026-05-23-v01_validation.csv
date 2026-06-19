@@ -1,0 +1,20 @@
+severity,check,feature_id,field,submitted_value,standardized_value,message
+info,source_inventory,NA,NA,NA,NA,Read 4 features from Yuba_HRL_Projects; source CRS: NAD83 / California zone 2 (ftUS).
+info,source_inventory,NA,NA,NA,NA,Workbook project tabs were inventoried as supplemental submitted attributes; GeoPackage attributes were used with the submitted geometries.
+info,profile,NA,NA,NA,NA,Output targets RestorationProjectSubmission; project_id and update_date were omitted.
+info,geometry_standardization,NA,NA,NA,NA,"Dropped Z/M ordinates, repaired geometries with sf::st_make_valid(), and transformed to EPSG:3310."
+warning,value_repair,Lower Long Bar Habitat Enhancement Project,contact_name/contact_email,Aaron Zettler-Mann; Jacob Vander Meulen / aaron@yubariver.org; jvandermeulen@yubawater.org,Aaron Zettler-Mann / aaron@yubariver.org,Selected the first submitted semicolon-delimited contact as the schema primary contact.
+warning,value_repair,Upper Long Bar Habitat Enhancement Project,contact_name/contact_email,Aaron Zettler-Mann; Jacob Vander Meulen / aaron@yubariver.org; jvandermeulen@yubawater.org,Aaron Zettler-Mann / aaron@yubariver.org,Selected the first submitted semicolon-delimited contact as the schema primary contact.
+warning,value_repair,Upper Rose Bar Habitat Enhancement Project,contact_name/contact_email,Aaron Zettler-Mann; Jacob Vander Meulen / aaron@yubariver.org; jvandermeulen@yubawater.org,Aaron Zettler-Mann / aaron@yubariver.org,Selected the first submitted semicolon-delimited contact as the schema primary contact.
+warning,value_repair,Hallwood Side Channel and Floodplain Restoration Project,early_implementation,True,TRUE,Converted submitted true/false text to schema boolean value.
+warning,value_repair,Lower Long Bar Habitat Enhancement Project,early_implementation,True,TRUE,Converted submitted true/false text to schema boolean value.
+warning,value_repair,Upper Long Bar Habitat Enhancement Project,early_implementation,True,TRUE,Converted submitted true/false text to schema boolean value.
+warning,value_repair,Upper Rose Bar Habitat Enhancement Project,early_implementation,True,TRUE,Converted submitted true/false text to schema boolean value.
+warning,value_repair,Lower Long Bar Habitat Enhancement Project,target_species,Chinook salmon; Steelhead Trout,Chinook salmon; Steelhead trout,Standardized target-species capitalization to schema enum value.
+warning,value_repair,Upper Long Bar Habitat Enhancement Project,target_species,Chinook salmon; Steelhead Trout,Chinook salmon; Steelhead trout,Standardized target-species capitalization to schema enum value.
+warning,acreage_missing,Hallwood Side Channel and Floodplain Restoration Project,acreage,NA,NA,Submitted acreage is missing; geometry-derived acreage was not substituted.
+warning,acreage_missing,Lower Long Bar Habitat Enhancement Project,acreage,NA,NA,Submitted acreage is missing; geometry-derived acreage was not substituted.
+warning,acreage_missing,Upper Long Bar Habitat Enhancement Project,acreage,NA,NA,Submitted acreage is missing; geometry-derived acreage was not substituted.
+warning,acreage_missing,Upper Rose Bar Habitat Enhancement Project,acreage,NA,NA,Submitted acreage is missing; geometry-derived acreage was not substituted.
+warning,date_consistency,Upper Rose Bar Habitat Enhancement Project,construction_completion_year/construction_completion_year_comments,2024 / Work should be completed by Dec 2026. Contract runs through May 2027 though.,2024 / Work should be completed by Dec 2026. Contract runs through May 2027 though.,Completion-year comment references dates later than the submitted completion year; retained submitted values pending review.
+warning,budget_consistency,Upper Long Bar Habitat Enhancement Project,estimated_budget_comments,Verdantas budget + Cramer Fish Science estimate. NEEDS CONSTRUCTION COST,Verdantas budget + Cramer Fish Science estimate. NEEDS CONSTRUCTION COST,Budget comment indicates construction cost is still needed; retained submitted budget and funding values pending review.
