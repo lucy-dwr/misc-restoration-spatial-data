@@ -1,0 +1,2 @@
+source_file,layer_name,geometry_type,features,fields,crs_name
+data-raw/water-forum/2026-05-27_v01/2026-05-27_v01.gpkg,LAR_HRL_Project_Info,Multi Polygon,6,28,NAD83 / California zone 2 (ftUS)

@@ -1,0 +1,10 @@
+severity,check,feature_id,field,submitted_value,standardized_value,message
+info,source_inventory,NA,NA,NA,NA,Read 6 features from LAR_HRL_Project_Info; source CRS: NAD83 / California zone 2 (ftUS).
+info,profile,NA,NA,NA,NA,Output targets RestorationProjectSubmission; project_id and update_date were omitted.
+info,geometry_standardization,NA,NA,NA,NA,"Dropped Z/M ordinates, repaired geometries with sf::st_make_valid(), and transformed to EPSG:3310."
+warning,value_repair,Nimbus Basin,early_implementation,Yes,TRUE,Converted submitted yes/no text to schema boolean value.
+warning,value_repair,Upper Sailor Bar,early_implementation,Yes,TRUE,Converted submitted yes/no text to schema boolean value.
+warning,value_repair,Lower Sailor Bar,early_implementation,Yes,TRUE,Converted submitted yes/no text to schema boolean value.
+warning,value_repair,Ancil Hoffman,early_implementation,Yes,TRUE,Converted submitted yes/no text to schema boolean value.
+warning,value_repair,"Upper River Bend, Phase 1",early_implementation,Yes,TRUE,Converted submitted yes/no text to schema boolean value.
+warning,value_repair,River Bend,early_implementation,Yes,TRUE,Converted submitted yes/no text to schema boolean value.
