@@ -50,10 +50,15 @@ For each submission:
   GeoPackages.
 - Prefer tidyverse-style data manipulation when it keeps transformations clear,
   especially `dplyr`, `stringr`, `readr`, `purrr`, and `tibble`.
+- Use explicit namespaces for package functions in scripts and helpers
+  (`dplyr::mutate()`, `sf::st_read()`, etc.) instead of attaching packages with
+  `library()` or `require()`.
 - Use `yaml` or another structured parser for schema files; do not parse YAML
   with ad hoc string operations.
 - Keep scripts scoped to one clear operation or submission until a reusable
   pattern emerges.
+- Name local helper functions plainly within their file context; do not add a
+  project prefix such as `hrl_`.
 - Submission-specific cleaning scripts are acceptable when a contributor's data
   has idiosyncratic formats, missing values, or unusual encodings. Keep that
   logic explicit and documented rather than hiding it in broad helper code.
@@ -74,6 +79,9 @@ For each submission:
 - Put reusable R scripts under `scripts/` until a stronger package structure is
   justified.
 - Prefer script entry points that can run with `Rscript --vanilla`.
+- Runners that execute project scripts under `Rscript --vanilla` should
+  explicitly activate/load `renv` before sourcing scripts, because `.Rprofile`
+  is skipped.
 - Keep exploratory notebooks or Quarto reports separate from reproducible
   cleaning scripts.
 - Avoid editing raw spatial files in R sessions. Always write new files to
