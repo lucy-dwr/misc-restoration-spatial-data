@@ -1,0 +1,6 @@
+source_file,archive_member,source_role,layer_name,geometry_type,features,fields,crs_name
+data-raw/scwa/2026-05-22_v01/2026-05-22_v01.zip,putah resto acres for HRL GIS Lucy 2026.xlsx,attributes,sheet1,NA,4,28,NA
+data-raw/scwa/2026-05-22_v01/2026-05-22_v01.zip,Nishikawa hrl habitat 2026.shp,geometry,Nishikawa hrl habitat 2026,POLYGON,1,1,WGS 84
+data-raw/scwa/2026-05-22_v01/2026-05-22_v01.zip,Gravel HRL habitat 2026.shp,geometry,Gravel HRL habitat 2026,POINT,91,22,WGS 84
+data-raw/scwa/2026-05-22_v01/2026-05-22_v01.zip,Los Rios Check Dam HRL habitat 2026.shp,geometry,Los Rios Check Dam HRL habitat 2026,POINT,1,1,WGS 84
+data-raw/scwa/2026-05-22_v01/2026-05-22_v01.zip,106a HRL habitat 2026.shp,geometry,106a HRL habitat 2026,POLYGON,1,1,WGS 84

@@ -1,0 +1,18 @@
+severity,check,feature_id,field,submitted_value,standardized_value,message
+info,source_inventory,NA,NA,NA,NA,Read 4 project rows from workbook and 94 geometry features from four shapefiles in the submitted zip.
+info,profile,NA,NA,NA,NA,Output targets RestorationProjectSubmission; workbook project_id and update_date were omitted.
+info,geometry_standardization,NA,NA,NA,NA,"Extracted zipped shapefiles to a temporary directory, dropped Z/M ordinates, repaired geometries with sf::st_make_valid(), transformed to EPSG:3310, and converted submitted point geometries to channel polygons with a 10 meter buffer."
+warning,geometry_approximation,Putah Gravel Augmentation and Scarification,geometry,91 submitted points,10 meter buffered line polygon,"Ordered submitted points along their dominant coordinate axis, connected them into a line, and buffered the line to approximate the mapped stream channel and banks."
+warning,geometry_approximation,Putah Creek fish passage at Los Rios Check Dam,geometry,1 submitted point,10 meter buffered point polygon,Buffered the submitted point to create a visible project-area polygon for mapping.
+warning,value_repair,Putah Gravel Augmentation and Scarification,contractors,Kleinfelder;TRPA Fish Biologists,Kleinfelder; TRPA Fish Biologists,Normalized semicolon-delimited contractor serialization while preserving submitted values.
+warning,value_repair,Nishikawa on Putah Creek,early_implementation,0,FALSE,Converted submitted integer flag to schema boolean value.
+warning,value_repair,Putah Gravel Augmentation and Scarification,early_implementation,1,TRUE,Converted submitted integer flag to schema boolean value.
+warning,value_repair,Putah Creek fish passage at Los Rios Check Dam,early_implementation,1,TRUE,Converted submitted integer flag to schema boolean value.
+warning,value_repair,Putah Creek fish passage at County Rd 106a,early_implementation,1,TRUE,Converted submitted integer flag to schema boolean value.
+warning,value_repair,Putah Creek fish passage at Los Rios Check Dam,funding_gap,NA,0,Derived missing funding_gap as estimated_budget - funding_secured.
+warning,value_repair,Putah Creek fish passage at County Rd 106a,funding_gap,NA,0,Derived missing funding_gap as estimated_budget - funding_secured.
+warning,temporary_missing_accepted,Putah Creek fish passage at Los Rios Check Dam,construction_start_year,NA,NA,Construction year is missing after standardization; accepted as a temporary local decision for this planning-stage SCWA submission.
+warning,temporary_missing_accepted,Putah Creek fish passage at Los Rios Check Dam,construction_completion_year,NA,NA,Construction year is missing after standardization; accepted as a temporary local decision for this planning-stage SCWA submission.
+warning,temporary_missing_accepted,Putah Creek fish passage at County Rd 106a,construction_start_year,NA,NA,Construction year is missing after standardization; accepted as a temporary local decision for this planning-stage SCWA submission.
+warning,temporary_missing_accepted,Putah Creek fish passage at County Rd 106a,construction_completion_year,NA,NA,Construction year is missing after standardization; accepted as a temporary local decision for this planning-stage SCWA submission.
+error,year_range,Putah Gravel Augmentation and Scarification,construction_start_year/construction_completion_year,2016/2040,2016/2040,Construction years are outside schema range or completion year is before start year.
