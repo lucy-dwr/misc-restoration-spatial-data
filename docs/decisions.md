@@ -1,7 +1,8 @@
 # Decisions And Open Questions
 
-Use this file to keep workflow choices explicit. Move items from open questions
-to decisions as they are resolved.
+Use this file for repository-wide workflow choices. Keep submission- and
+agency-specific assumptions in separate files under `docs/decisions/` so this
+index stays readable.
 
 ## Decisions
 
@@ -27,6 +28,12 @@ to decisions as they are resolved.
   difference, and features outside California. Sliver and near-duplicate checks
   are warnings pending manual review; empty, invalid, or clearly out-of-state
   geometries are errors.
+- Submission- and agency-specific decision logs are stored under
+  `docs/decisions/`.
+
+## Submission-Specific Logs
+
+- [EBMUD 2026-05-22-v01](decisions/ebmud-2026-05-22-v01.md)
 
 ## Open Questions
 
