@@ -1,0 +1,7 @@
+# Mokelumne Project-Name Corrections 2026-07-20
+
+## Summary
+
+- Applied 6 requested EBMUD project-name corrections.
+- Updated the funding-source and project-description review CSVs to preserve project-name matching in future update runs.
+- Raw submissions were not modified.

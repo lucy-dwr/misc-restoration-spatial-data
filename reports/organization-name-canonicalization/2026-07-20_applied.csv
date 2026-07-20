@@ -1,0 +1,20 @@
+source_slug,project_name,field,previous_value,updated_value
+ebmud,Mokelumne River - MRDUA Large Floodplain Project,lead_entity,EBMUD,East Bay Municipal Utility District
+ebmud,Mokelumne River - Gravel Maintenance Project - Early Implementation Projects,lead_entity,EBMUD,East Bay Municipal Utility District
+ebmud,Mokelumne River - Gravel Maintenance Project - Early Implementation Projects,funding_sources,California Department of Water Resources; EBMUD,California Department of Water Resources; East Bay Municipal Utility District
+ebmud,Mokelumne River - Floodplain Restoration Projects - Early Implementation Projects,lead_entity,EBMUD,East Bay Municipal Utility District
+ebmud,Mokelumne River - Floodplain Restoration Projects - Early Implementation Projects,estimated_budget_comments,"EBMUD, USFWS, CNRA","East Bay Municipal Utility District, U.S. Fish and Wildlife Service, California Natural Resources Agency"
+ebmud,Mokelumne River - Floodplain Restoration Projects - Early Implementation Projects,funding_sources,Proposition 68; EBMUD,Proposition 68; East Bay Municipal Utility District
+ebmud,Mokelumne River - CE Large Floodplain Restoration Project,lead_entity,EBMUD,East Bay Municipal Utility District
+ebmud,Mokelumne River - CE Large Floodplain Restoration Project,funding_sources,California Department of Water Resources; EBMUD,California Department of Water Resources; East Bay Municipal Utility District
+ebmud,Mokelumne River - In Channel Rearing Habitat Restoration Project,lead_entity,EBMUD,East Bay Municipal Utility District
+ebmud,Mokelumne River - In Channel Rearing Habitat Restoration Project,funding_sources,California Department of Water Resources; EBMUD,California Department of Water Resources; East Bay Municipal Utility District
+ebmud,Mokelumne River - Gravel Maintenance Project – Current and Future Maintenance Projects,lead_entity,EBMUD,East Bay Municipal Utility District
+ebmud,Mokelumne River - Gravel Maintenance Project – Current and Future Maintenance Projects,funding_sources,California Department of Water Resources; EBMUD,California Department of Water Resources; East Bay Municipal Utility District
+scwa,Nishikawa on Putah Creek,lead_entity,SCWA,Solano County Water Agency
+scwa,Putah Gravel Augmentation and Scarification,lead_entity,SCWA,Solano County Water Agency
+scwa,Putah Creek fish passage at County Rd 106a,lead_entity,SCWA,Solano County Water Agency
+sfpuc,Upstream of Old LaGrange Bridge Restoration Project,estimated_budget_comments,"Budget for OLGB is roughly 27% funded by SFPUC, MID, TID, and 73% CDFW","Budget for OLGB is roughly 27% funded by San Francisco Public Utilities Commission, Modesto Irrigation District, Turlock Irrigation District, and 73% California Department of Fish and Wildlife"
+sfpuc,Upstream of Old LaGrange Bridge Restoration Project,funding_sources,SFPUC; Merced Irrigation District; Turlock Irrigation District; California Department of Fish and Wildlife,San Francisco Public Utilities Commission; Merced Irrigation District; Turlock Irrigation District; California Department of Fish and Wildlife
+sfpuc,Powerhouse Riffles Restoration Project,estimated_budget_comments,"SFPUC, TID, MID funded","San Francisco Public Utilities Commission, Turlock Irrigation District, Modesto Irrigation District funded"
+sfpuc,Powerhouse Riffles Restoration Project,funding_sources,SFPUC; Merced Irrigation District; Turlock Irrigation District,San Francisco Public Utilities Commission; Merced Irrigation District; Turlock Irrigation District

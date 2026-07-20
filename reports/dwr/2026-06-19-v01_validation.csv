@@ -1,5 +1,6 @@
 severity,check,feature_id,field,submitted_value,standardized_value,message
 info,source_inventory,NA,NA,NA,NA,Read 13 features from restoration_projects; source CRS: NAD83 / California Albers.
+info,value_correction,Dos Rios Norte,lead_entity,DWR,River Partners,Corrected lead entity based on program direction.
 info,profile,NA,NA,NA,NA,Output targets RestorationProjectSubmission; project_id and update_date were omitted.
 info,geometry_standardization,NA,NA,NA,NA,"Dropped Z/M ordinates, repaired geometries with sf::st_make_valid(), and transformed to EPSG:3310."
 warning,value_repair,P68 Feather River Salmon Habitat Improvement Project,funding_sources,Prop 68; CVPIA; ; DWR,Prop 68; CVPIA; DWR,Normalized semicolon-delimited serialization and dropped empty submitted list elements.
