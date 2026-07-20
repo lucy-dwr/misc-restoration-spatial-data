@@ -39,6 +39,7 @@ next_output_version <- function(out_dir, report_dir, output_date = Sys.Date()) {
 
 output_version <- next_output_version(out_dir, report_dir)
 out_gpkg <- file.path(out_dir, paste0(output_version, ".gpkg"))
+attributes_csv <- file.path(out_dir, paste0(output_version, "_attributes.csv"))
 inventory_csv <- file.path(report_dir, paste0(output_version, "_inventory.csv"))
 qc_md <- file.path(report_dir, paste0(output_version, "_qc.md"))
 
@@ -97,6 +98,7 @@ if (all(combined_geometry_types %in% c("POLYGON", "MULTIPOLYGON"))) {
 }
 
 sf::st_write(combined, out_gpkg, layer = out_layer, quiet = TRUE)
+readr::write_csv(sf::st_drop_geometry(combined), attributes_csv, na = "")
 
 inventory <- purrr::pmap_dfr(submissions, function(source_slug, source_agency,
                                                    submission_version, source_file) {
@@ -149,6 +151,7 @@ qc_lines <- c(
   "## Output",
   "",
   paste0("- Output file: `", out_gpkg, "`"),
+  paste0("- Attribute table: `", attributes_csv, "`"),
   paste0("- Output layer: `", out_layer, "`"),
   paste0("- Output feature count: ", nrow(combined)),
   "- Output CRS: `EPSG:3310`",
@@ -186,5 +189,6 @@ qc_lines <- c(
 readr::write_lines(qc_lines, qc_md)
 
 message("Wrote ", out_gpkg)
+message("Wrote ", attributes_csv)
 message("Wrote ", inventory_csv)
 message("Wrote ", qc_md)
