@@ -22,7 +22,11 @@ cleaned <- raw |>
     project_stage = normalize_semicolon_values(project_stage),
     contact_name = null_to_na_chr(contact_name),
     contact_email = stringr::str_to_lower(null_to_na_chr(contact_email)),
-    lead_entity = normalize_semicolon_values(lead_entity),
+    lead_entity = dplyr::if_else(
+      project_name == "Dos Rios Norte",
+      "River Partners",
+      normalize_semicolon_values(lead_entity)
+    ),
     contractors = normalize_semicolon_values(contractors),
     early_implementation = as.logical(early_implementation),
     construction_start_year = as.integer(construction_start_year),
@@ -64,6 +68,17 @@ validation <- append_validation(
     "Read ", inventory$features[[1]], " features from ", source_layer,
     "; source CRS: ", inventory$crs_name[[1]], "."
   )
+)
+
+validation <- append_validation(
+  validation,
+  "info",
+  "value_correction",
+  feature_id = "Dos Rios Norte",
+  field = "lead_entity",
+  submitted_value = "DWR",
+  standardized_value = "River Partners",
+  message = "Corrected lead entity based on program direction."
 )
 
 validation <- append_validation(
@@ -285,6 +300,7 @@ transformations <- c(
   "- `funding_sources`, `project_stage`, `project_type`, `contractors`, `lead_entity`, and `target_species`: normalized semicolon-delimited serialization.",
   "- `funding_sources`: dropped empty submitted list elements.",
   "  - `Prop 68; CVPIA; ; DWR` -> `Prop 68; CVPIA; DWR`",
+  "- `Dos Rios Norte` `lead_entity`: corrected from `DWR` to `River Partners` based on program direction.",
   "- `estimated_budget`, `funding_secured`, `funding_gap`, and construction years: wrote integer values required by the schema.",
   "- Text length limits from the pinned schema were checked and enforced for description and comment fields.",
   "- Submitted acreage values are preserved rather than replaced with geometry-derived acreage.",
