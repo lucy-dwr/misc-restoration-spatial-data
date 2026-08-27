@@ -39,6 +39,7 @@ index stays readable.
 - [SFPUC 2026-05-22-v01](decisions/sfpuc-2026-05-22-v01.md)
 - [Water Forum 2026-05-27-v01](decisions/water-forum-2026-05-27-v01.md)
 - [YWA 2026-05-23-v01](decisions/ywa-2026-05-23-v01.md)
+- [SAC 2026-07-31-v01](decisions/sac-2026-07-31-v01.md)
 
 ## Open Questions
 

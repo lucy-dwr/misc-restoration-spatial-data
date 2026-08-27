@@ -44,12 +44,17 @@ Choose the output profile before transforming fields:
 
 - `RestorationProjectSubmission` for schema-compliant submitted records.
 - `RestorationProjectCanonicalRecord` only when the workflow is intentionally
-  assigning canonical fields such as `project_id`, `funding_gap`, and
-  `update_date`.
+  assigning canonical fields such as `funding_gap` and `update_date`.
 
 Default assumption for this repository: create standardized submission-profile
 GeoPackages unless the user decides this repo should also perform canonical
 ingestion.
+
+Every submission-profile record must carry a public `project_id` resolved from
+the authoritative project registry. Select an immutable, versioned registry
+export before compilation; do not create IDs locally or infer them from row
+numbers. Treat a missing, duplicate, unknown, retired, or superseded ID as a
+validation error and include it in the row-level validation report.
 
 ## 4. Field Mapping
 
@@ -63,6 +68,7 @@ GeoPackage.
 The current submission profile expects these shared project fields:
 
 ```text
+project_id
 project_name
 project_description
 project_stage

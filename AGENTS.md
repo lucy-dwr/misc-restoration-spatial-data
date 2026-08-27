@@ -10,8 +10,9 @@ into GeoPackages that follow the HRL restoration schema.
   `schemas/hrl_restoration_project.yaml`.
 - Do not duplicate schema rules here unless they are pinned as generated
   artifacts or documented as a temporary local decision.
-- Program-assigned fields such as `project_id` and `update_date` belong to the
-  canonical record profile, not ordinary submitter-provided inputs.
+- `project_id` is a required, public field on every submission. Dataset
+  compilers must obtain it from the authoritative project-ID registry before
+  producing a submission. `update_date` remains canonical-only.
 
 ## Data Handling
 
@@ -92,6 +93,9 @@ For each submission:
 Validation and QA should check at minimum:
 
 - Required attributes for the selected schema profile.
+- A non-missing, unique `project_id` for every record, with each ID verified
+  against the selected immutable project-registry export. Missing, unknown,
+  retired, or superseded IDs are errors, not warnings.
 - Controlled vocabulary values.
 - Semicolon-delimited multivalue fields where applicable.
 - Email format for `contact_email`.

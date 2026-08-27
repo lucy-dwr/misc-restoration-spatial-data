@@ -47,6 +47,18 @@ The schema repository currently defines:
 When schema behavior is unclear, update this repository's decision log and, if
 needed, make the actual schema change upstream in `hrl-restoration-schema`.
 
+`project_id` is an exception to the usual distinction between submission and
+canonical fields: it is a required, public submission field. Before compiling a
+submission, obtain every ID from an immutable export of the authoritative
+project registry. A missing, duplicate, unknown, retired, or superseded ID is a
+validation error and the submission must not proceed.
+
+For the current registry-transition smoke test, use
+`scripts/backfill-project-ids-for-smoke-test.R` with an explicit registry CSV
+and schema file. It only accepts exact project-name matches and writes a
+row-level project-ID validation report before it creates the GeoPackage and
+submission manifest. It is a migration tool, not an ID allocator.
+
 ## Schema Updates
 
 This repository should consume released schema snapshots. The intended
