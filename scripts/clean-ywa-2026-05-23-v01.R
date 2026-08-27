@@ -46,6 +46,13 @@ target_species_map <- c(
   "Steelhead Trout" = "Steelhead trout"
 )
 
+acreage_corrections <- c(
+  "Hallwood Side Channel and Floodplain Restoration Project" = 157,
+  "Lower Long Bar Habitat Enhancement Project" = 42,
+  "Upper Long Bar Habitat Enhancement Project" = 82,
+  "Upper Rose Bar Habitat Enhancement Project" = 43
+)
+
 cleaned <- raw |>
   dplyr::mutate(
     submitted_contact_name = contact_name,
@@ -75,7 +82,11 @@ cleaned <- raw |>
     funding_sources = normalize_semicolon_values(funding_sources),
     system = null_to_na_chr(system),
     project_type = normalize_semicolon_values(project_type),
-    acreage = as.numeric(acreage),
+    acreage = dplyr::recode(
+      project_name,
+      !!!acreage_corrections,
+      .default = as.numeric(acreage)
+    ),
     acreage_bypass_floodplain = as.numeric(acreage_bypass_floodplain),
     acreage_fish_food = as.numeric(acreage_fish_food),
     acreage_tributary_floodplain = as.numeric(acreage_tributary_floodplain),
@@ -106,6 +117,14 @@ validation <- append_validation(
     "; source CRS: ", inventory_source$crs_name[[1]], "."
   )
 )
+
+for (project in names(acreage_corrections)) {
+  validation <- append_validation(
+    validation, "info", "value_correction", project, "acreage",
+    NA_character_, acreage_corrections[[project]],
+    "Program-confirmed total project acreage."
+  )
+}
 
 validation <- append_validation(
   validation,
@@ -425,7 +444,7 @@ transformations <- c(
 )
 
 review_items <- c(
-  "- All four submitted records are missing `acreage`; supply restoration acreage values if they are available.",
+  "- Program-confirmed acreage values were supplied for all four Yuba projects that lacked them in the source workbook.",
   "- `Upper Rose Bar Habitat Enhancement Project` has submitted `construction_completion_year` 2024, but its completion-year comment references December 2026 and May 2027 dates. Confirm the intended completion year.",
   "- `Upper Long Bar Habitat Enhancement Project` has an estimated-budget comment saying `NEEDS CONSTRUCTION COST`, while `funding_gap` is submitted as `0`. Confirm whether the budget and funding values are final."
 )

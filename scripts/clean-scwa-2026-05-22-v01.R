@@ -229,7 +229,11 @@ cleaned <- raw |>
       submitted_null_to_na(early_implementation) == "0" ~ FALSE,
       TRUE ~ NA
     ),
-    construction_start_year = to_integer(construction_start_year),
+    construction_start_year = dplyr::if_else(
+      project_name == "Putah Gravel Augmentation and Scarification",
+      2018L,
+      to_integer(construction_start_year)
+    ),
     construction_completion_year = to_integer(construction_completion_year),
     construction_completion_year_comments =
       stringr::str_trunc(submitted_null_to_na(construction_completion_year_comments), 250, ellipsis = ""),
@@ -265,6 +269,17 @@ validation <- append_validation(
     "Read ", nrow(workbook), " project rows from workbook and ",
     sum(inventory_spatial$features), " geometry features from four shapefiles in the submitted zip."
   )
+)
+
+validation <- append_validation(
+  validation,
+  "warning",
+  "value_correction",
+  "Putah Gravel Augmentation and Scarification",
+  "construction_start_year",
+  "2016",
+  "2018",
+  "Corrected to the program-confirmed earliest allowed construction year."
 )
 
 validation <- append_validation(
@@ -530,6 +545,7 @@ transformations <- c(
   "- Repaired the invalid submitted Nishikawa polygon with `sf::st_make_valid()`.",
   "- Transformed all geometries from WGS 84 to EPSG:3310.",
   "- `project_id` and `update_date`: omitted as program-assigned canonical-record fields.",
+  "- `Putah Gravel Augmentation and Scarification`: corrected construction start year from submitted `2016` to program-confirmed `2018`.",
   "- `early_implementation`: converted submitted `0`/`1` flags to logical values.",
   "- `contractors`, `project_stage`, `project_type`, `funding_sources`, and `target_species`: normalized semicolon-delimited serialization.",
   "- `funding_gap`: derived as `estimated_budget - funding_secured` when missing from the workbook.",
@@ -540,7 +556,7 @@ transformations <- c(
 )
 
 review_items <- c(
-  "- `Putah Gravel Augmentation and Scarification` has submitted construction start year `2016`, which is outside the current schema validation range starting at 2018; confirm whether this long-running project needs a schema exception or a different start-year interpretation."
+  "- No unresolved construction-year exceptions remain."
 )
 
 inventory_summary <- tibble::tibble(

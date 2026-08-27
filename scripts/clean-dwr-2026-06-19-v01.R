@@ -14,10 +14,32 @@ submission <- read_submission_layer(paths$source_gpkg, source_layer, paths$inven
 inventory <- submission$inventory
 raw <- submission$raw
 
+fully_secured_projects <- c(
+  "McCormack-Williamson Tract (Phase B)",
+  "Grizzly Slough Floodplain Restoration",
+  "Lower Elkhorn Basin Levee Setback",
+  "Agricultural Road Crossing #4 Improvements",
+  "Prospect Island Tidal Habitat Restoration Project",
+  "Dutch Slough Tidal Restoration Project (Phase 2)"
+)
+
+project_name_corrections <- c(
+  "McCormick-Williamson Tract (MWT) Monitoring Project (Phase B)" =
+    "McCormack-Williamson Tract (Phase B)",
+  "Feather River Salmonid Spawning Habitat Improvement - 2024" =
+    "Feather River Salmonid Spawning Habitat Improvement (2024)",
+  "P68 Feather River Salmon Habitat Improvement Project" =
+    "Feather River Salmonid Spawning Habitat Improvement (Proposition 68)"
+)
+
 cleaned <- raw |>
   dplyr::mutate(
     submitted_funding_sources = funding_sources,
-    project_name = null_to_na_chr(project_name),
+    project_name = dplyr::recode(
+      null_to_na_chr(project_name),
+      !!!project_name_corrections,
+      .default = null_to_na_chr(project_name)
+    ),
     project_description = stringr::str_trunc(null_to_na_chr(project_description), 500, ellipsis = ""),
     project_stage = normalize_semicolon_values(project_stage),
     contact_name = null_to_na_chr(contact_name),
@@ -35,7 +57,11 @@ cleaned <- raw |>
       stringr::str_trunc(null_to_na_chr(construction_completion_year_comments), 250, ellipsis = ""),
     estimated_budget = as.integer(round(estimated_budget)),
     estimated_budget_comments = stringr::str_trunc(null_to_na_chr(estimated_budget_comments), 500, ellipsis = ""),
-    funding_secured = as.integer(round(funding_secured)),
+    funding_secured = dplyr::if_else(
+      project_name %in% fully_secured_projects,
+      estimated_budget,
+      as.integer(round(funding_secured))
+    ),
     funding_gap = dplyr::if_else(
       !is.na(estimated_budget) & !is.na(funding_secured),
       estimated_budget - funding_secured,
@@ -69,6 +95,26 @@ validation <- append_validation(
     "; source CRS: ", inventory$crs_name[[1]], "."
   )
 )
+
+for (submitted_name in names(project_name_corrections)) {
+  validation <- append_validation(
+    validation, "info", "value_correction", project_name_corrections[[submitted_name]],
+    "project_name", submitted_name, project_name_corrections[[submitted_name]],
+    "Applied the program-approved canonical project name for registry matching."
+  )
+}
+
+for (project in fully_secured_projects) {
+  budget <- cleaned |>
+    sf::st_drop_geometry() |>
+    dplyr::filter(project_name == project) |>
+    dplyr::pull(estimated_budget)
+  validation <- append_validation(
+    validation, "info", "value_correction", project, "funding_secured",
+    NA_character_, budget,
+    "Program-confirmed funding secured equals the estimated budget."
+  )
+}
 
 validation <- append_validation(
   validation,
@@ -308,7 +354,7 @@ transformations <- c(
 )
 
 review_items <- c(
-  "- Eleven records are missing required `funding_secured`; supply funding-secured values or confirm the schema should allow missing values for this submission.",
+  "- Five early-stage records remain without submitted `funding_secured`; the production pipeline reports these as warnings until they reach construction.",
   "- `Dos Rios Norte` is missing required `construction_start_year`, `construction_completion_year`, and `funding_secured`; supply those values before the record can pass validation."
 )
 

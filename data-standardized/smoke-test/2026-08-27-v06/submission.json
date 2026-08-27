@@ -1,0 +1,12 @@
+{
+  "submission_id": "legacy-multi-agency-registry-linked-smoke-test",
+  "organization": "Healthy Rivers and Landscapes",
+  "organization_code": "HRL",
+  "dataset_name": "Registry-linked legacy multi-agency smoke test",
+  "submission_type": "update",
+  "submission_scope": "partial_update",
+  "data_as_of": "2026-08-24",
+  "data_steward_name": "HRL Data Steward",
+  "data_steward_email": "data-steward@example.org",
+  "primary_file": "projects.gpkg"
+}

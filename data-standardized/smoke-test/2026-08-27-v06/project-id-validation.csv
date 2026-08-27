@@ -1,0 +1,37 @@
+severity,check,feature_id,field,submitted_value,standardized_value,message
+info,project_id_registry_match,McCormack-Williamson Tract (Phase B),project_id,,HRL-001,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Grizzly Slough Floodplain Restoration,project_id,,HRL-002,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Lower Elkhorn Basin Levee Setback,project_id,,HRL-003,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Kopta Slough Multi-Benefit Project,project_id,,HRL-004,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Dos Rios Norte,project_id,,HRL-005,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Tisdale Weir Reoperation,project_id,,HRL-006,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Agricultural Road Crossing #4 Improvements,project_id,,HRL-007,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Prospect Island Tidal Habitat Restoration Project,project_id,,HRL-008,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Little Egbert Multi-Benefit Project,project_id,,HRL-009,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Tide's End Multibenefit Restoration Project,project_id,,HRL-010,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Dutch Slough Tidal Restoration Project (Phase 2),project_id,,HRL-011,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Feather River Salmonid Spawning Habitat Improvement (2024),project_id,,HRL-012,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Feather River Salmonid Spawning Habitat Improvement (Proposition 68),project_id,,HRL-013,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Mokelumne River Day Use Area Large Floodplain Project,project_id,,HRL-014,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Mokelumne River Gravel Maintenance Project (Early Implementation),project_id,,HRL-015,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Mokelumne River Floodplain Restoration Project (Early Implementation),project_id,,HRL-016,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Mokelumne River Conservation Easement Large Floodplain Restoration Project,project_id,,HRL-017,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Mokelumne River In-Channel Rearing Habitat Restoration Project,project_id,,HRL-018,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Mokelumne River Gravel Maintenance Project,project_id,,HRL-019,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Oroville Wildlife Area River Restoration Project at Robinson's Riffle,project_id,,HRL-020,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Nishikawa on Putah Creek,project_id,,HRL-021,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Putah Gravel Augmentation and Scarification,project_id,,HRL-022,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Putah Creek fish passage at Los Rios Check Dam,project_id,,HRL-023,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Putah Creek fish passage at County Rd 106a,project_id,,HRL-024,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Upstream of Old LaGrange Bridge Restoration Project,project_id,,HRL-025,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Powerhouse Riffles Restoration Project,project_id,,HRL-026,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Nimbus Basin,project_id,,HRL-027,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Upper Sailor Bar,project_id,,HRL-028,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Lower Sailor Bar,project_id,,HRL-029,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Ancil Hoffman,project_id,,HRL-030,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Upper River Bend (Phase 1),project_id,,HRL-031,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,River Bend,project_id,,HRL-032,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Hallwood Side Channel and Floodplain Restoration Project,project_id,,HRL-033,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Lower Long Bar Habitat Enhancement Project,project_id,,HRL-034,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Upper Long Bar Habitat Enhancement Project,project_id,,HRL-035,Exact project-name match to an eligible registry record.
+info,project_id_registry_match,Upper Rose Bar Habitat Enhancement Project,project_id,,HRL-036,Exact project-name match to an eligible registry record.
